@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cmgd405hut0nw"]
+
+[ext_resource type="PackedScene" uid="uid://c0vuyaycmu1cp" path="res://Models/FBX format/tree-park-large.fbx" id="1_c6i3y"]
+[ext_resource type="PackedScene" uid="uid://chfdfe2ehhj3d" path="res://Models/FBX format/truck-flat.fbx" id="2_c2ibq"]
+[ext_resource type="PackedScene" uid="uid://d1i5ewk55ddx6" path="res://Models/FBX format/truck-grey-cargo.fbx" id="3_j4qnp"]
+[ext_resource type="PackedScene" uid="uid://cxu1oa2ygq3p4" path="res://Models/FBX format/wall-a-diagonal.fbx" id="4_fpfj3"]
+[ext_resource type="PackedScene" uid="uid://csogp3mgbu3i5" path="res://Models/FBX format/wall-a-door.fbx" id="5_sc1dx"]
+[ext_resource type="PackedScene" uid="uid://4ndyy4k8ar8k" path="res://Models/FBX format/wall-a-garage.fbx" id="6_kjvhd"]
+[ext_resource type="PackedScene" uid="uid://b36a3o7t4oxp1" path="res://Models/FBX format/wall-c-flat.fbx" id="7_5tuhn"]
+[ext_resource type="PackedScene" uid="uid://dh7qn6e7wrehb" path="res://Models/FBX format/tree-pine-small.fbx" id="8_2gh4u"]
+[ext_resource type="PackedScene" uid="uid://byd1wxqin8r2l" path="res://Models/FBX format/scaffolding-structure.fbx" id="9_devvj"]
+[ext_resource type="PackedScene" uid="uid://cdqva4gbx22d1" path="res://Models/FBX format/wall-a-roof.fbx" id="10_3b0ty"]
+[ext_resource type="PackedScene" uid="uid://c0rcm4eore1bm" path="res://Models/FBX format/wall-steps-type-a.fbx" id="11_bg4s2"]
+[ext_resource type="PackedScene" uid="uid://d17digajedoc5" path="res://Models/FBX format/detail-bricks-type-a.fbx" id="12_hhcpw"]
+[ext_resource type="PackedScene" uid="uid://dyqcqnix72k3l" path="res://Models/FBX format/detail-beam.fbx" id="13_mxvw5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xrxkg"]
+
+[node name="Main" type="Node3D" unique_id=1868884646]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2008358408]
+transform = Transform3D(8.602104, 0, 0, 0, 1.4044187, 0, 0, 0, 8.602104, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xrxkg")
+
+[node name="tree-park-large" parent="." unique_id=1106857188 instance=ExtResource("1_c6i3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3753138, 2.3841858e-07, 0.2457695)
+
+[node name="truck-flat" parent="." unique_id=136715392 instance=ExtResource("2_c2ibq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.215537, 0, 1.8531427)
+
+[node name="truck-grey-cargo" parent="truck-flat" unique_id=2104760404 instance=ExtResource("3_j4qnp")]
+transform = Transform3D(0.99593955, 0, 0.09002422, 0, 1, 0, -0.09002422, 0, 0.99593955, 0.00033926964, 0.3662057, 0.29890466)
+
+[node name="wall-a-diagonal" parent="." unique_id=960949196 instance=ExtResource("4_fpfj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.455358, -0.007883489, 0.28076148)
+
+[node name="wall-a-door" parent="." unique_id=1890026612 instance=ExtResource("5_sc1dx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4457803, 2.3841858e-07, 0.28593874)
+
+[node name="wall-a-garage" parent="." unique_id=1536946758 instance=ExtResource("6_kjvhd")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -2.4537637, -0.0069471, 1.2819412)
+
+[node name="wall-c-flat" parent="." unique_id=1323011254 instance=ExtResource("7_5tuhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4573195, 0, -0.21838975)
+
+[node name="wall-c-flat2" parent="wall-c-flat" unique_id=1971453427 instance=ExtResource("7_5tuhn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.49567175, 0, 0.48969877)
+
+[node name="tree-pine-small" parent="wall-c-flat/wall-c-flat2" unique_id=2119456244 instance=ExtResource("8_2gh4u")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.09326798, 0.033591628, 0.32483816)
+
+[node name="scaffolding-structure" parent="." unique_id=734184344 instance=ExtResource("9_devvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4562998, -1.1920929e-07, 2.2845879)
+
+[node name="wall-a-roof" parent="." unique_id=1176487112 instance=ExtResource("10_3b0ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4391124, 1.008363, 0.28841972)
+
+[node name="wall-steps-type-a" parent="." unique_id=887690767 instance=ExtResource("11_bg4s2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.910841, 0.9944272, 1.2717664)
+
+[node name="detail-bricks-type-a" parent="." unique_id=1134168267 instance=ExtResource("12_hhcpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5629604, 0.99528414, 1.4288974)
+
+[node name="detail-beam" parent="." unique_id=1121310565 instance=ExtResource("13_mxvw5")]
+transform = Transform3D(0.76362705, 0, 0.6456576, 0, 1, 0, -0.6456576, 0, 0.76362705, -2.2515097, 1.0039598, 0.7750412)
