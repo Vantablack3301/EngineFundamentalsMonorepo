@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bde701yh75rs5"]
+
+[ext_resource type="Script" uid="uid://ddypful7vaqlj" path="res://Models/scripts/caller.gd" id="1_nocih"]
+
+[node name="Caller" type="Node3D" unique_id=1278779453]
+script = ExtResource("1_nocih")

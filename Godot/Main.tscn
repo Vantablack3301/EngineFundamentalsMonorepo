@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c0rcm4eore1bm" path="res://Models/FBX format/wall-steps-type-a.fbx" id="11_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://d17digajedoc5" path="res://Models/FBX format/detail-bricks-type-a.fbx" id="12_hhcpw"]
 [ext_resource type="PackedScene" uid="uid://dyqcqnix72k3l" path="res://Models/FBX format/detail-beam.fbx" id="13_mxvw5"]
+[ext_resource type="PackedScene" uid="uid://bde701yh75rs5" path="res://Models/objects/caller.tscn" id="14_j4qnp"]
+[ext_resource type="PackedScene" uid="uid://bulkbk57307th" path="res://Models/objects/reciever.tscn" id="15_fpfj3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xrxkg"]
 
@@ -63,3 +65,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5629604, 0.99528414, 1.428
 
 [node name="detail-beam" parent="." unique_id=1121310565 instance=ExtResource("13_mxvw5")]
 transform = Transform3D(0.76362705, 0, 0.6456576, 0, 1, 0, -0.6456576, 0, 0.76362705, -2.2515097, 1.0039598, 0.7750412)
+
+[node name="Caller" parent="." unique_id=1278779453 node_paths=PackedStringArray("refObj") instance=ExtResource("14_j4qnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5568725, 0, -0.8919922)
+refObj = NodePath("../Reciever")
+
+[node name="Reciever" parent="." unique_id=638897963 instance=ExtResource("15_fpfj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1360675, 0, -1.3407266)
