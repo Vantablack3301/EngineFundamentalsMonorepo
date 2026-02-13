@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0rcm4eore1bm" path="res://Models/FBX format/wall-steps-type-a.fbx" id="11_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://d17digajedoc5" path="res://Models/FBX format/detail-bricks-type-a.fbx" id="12_hhcpw"]
 [ext_resource type="PackedScene" uid="uid://dyqcqnix72k3l" path="res://Models/FBX format/detail-beam.fbx" id="13_mxvw5"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.tscn" id="14_c2ibq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c6i3y"]
 size = Vector3(0.99150085, 1.0016861, 0.9949951)
@@ -74,3 +75,16 @@ shape = SubResource("BoxShape3D_c6i3y")
 
 [node name="box" type="MeshInstance3D" parent="Floorparent" unique_id=571250370]
 mesh = SubResource("BoxMesh_c2ibq")
+
+[node name="ProtoController" parent="." unique_id=1762813301 instance=ExtResource("14_c2ibq")]
+transform = Transform3D(-0.20763895, 0, -0.09750833, 0, 0.22939444, 0, 0.09750833, 0, -0.20763895, -3.475848, 1.2825665, -3.5486631)
+input_left = "Move_Left"
+input_right = "Move_Right"
+input_forward = "Move_Forward"
+input_back = "Move_Backward"
+input_jump = "Jump"
+input_sprint = "Sprint"
+input_freefly = "GMod_Ghost"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1629190610]
+transform = Transform3D(0.8237603, 0.45031193, -0.34443894, 0, 0.6075422, 0.7942874, 0.5669383, -0.6543024, 0.50046915, -3.366303, 1.0866323, -0.71360016)
