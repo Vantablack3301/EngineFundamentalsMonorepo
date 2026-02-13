@@ -14,13 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://d17digajedoc5" path="res://Models/FBX format/detail-bricks-type-a.fbx" id="12_hhcpw"]
 [ext_resource type="PackedScene" uid="uid://dyqcqnix72k3l" path="res://Models/FBX format/detail-beam.fbx" id="13_mxvw5"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_xrxkg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6i3y"]
+size = Vector3(0.99150085, 1.0016861, 0.9949951)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c2ibq"]
 
 [node name="Main" type="Node3D" unique_id=1868884646]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2008358408]
-transform = Transform3D(8.602104, 0, 0, 0, 1.4044187, 0, 0, 0, 8.602104, 0, 0, 0)
-mesh = SubResource("PlaneMesh_xrxkg")
 
 [node name="tree-park-large" parent="." unique_id=1106857188 instance=ExtResource("1_c6i3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3753138, 2.3841858e-07, 0.2457695)
@@ -63,3 +62,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5629604, 0.99528414, 1.428
 
 [node name="detail-beam" parent="." unique_id=1121310565 instance=ExtResource("13_mxvw5")]
 transform = Transform3D(0.76362705, 0, 0.6456576, 0, 1, 0, -0.6456576, 0, 0.76362705, -2.2515097, 1.0039598, 0.7750412)
+
+[node name="Floorparent" type="Node3D" parent="." unique_id=1616869498]
+transform = Transform3D(17.507378, 0, 0, 0, 0.2696243, 0, 0, 0, 17.462711, -2.587905, -0.13042474, 0.30885267)
+
+[node name="Floor" type="StaticBody3D" parent="Floorparent" unique_id=800631809]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floorparent/Floor" unique_id=1518542403]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0.0029220681, 0.0035438486, -0.00091552164)
+shape = SubResource("BoxShape3D_c6i3y")
+
+[node name="box" type="MeshInstance3D" parent="Floorparent" unique_id=571250370]
+mesh = SubResource("BoxMesh_c2ibq")
