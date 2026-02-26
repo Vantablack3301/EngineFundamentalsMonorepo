@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d0oeexocpy8ny"]
+
+[ext_resource type="Texture2D" uid="uid://de73j7vqx5rnf" path="res://Models/FBX format/Textures/planks.png" id="1_cvh1u"]
+
+[resource]
+resource_name = "planks"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_cvh1u")
+emission_enabled = true

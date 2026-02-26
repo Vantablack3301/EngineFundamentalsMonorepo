@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bdrtx7pmib0cr"]
+
+[ext_resource type="Texture2D" uid="uid://dk8njc6ybcosk" path="res://Models/FBX format/Textures/roof_plates.png" id="1_kchvh"]
+
+[resource]
+resource_name = "roof_plates"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_kchvh")
+emission_enabled = true

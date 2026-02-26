@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bo20084nx2jrg"]
+
+[ext_resource type="PackedScene" uid="uid://dh7qn6e7wrehb" path="res://Models/FBX format/tree-pine-small.fbx" id="1_dgc7j"]
+[ext_resource type="Script" uid="uid://c0svqw6w33enp" path="res://scripts/tree_collectible.gd" id="1_yutxe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4h8ju"]
+size = Vector3(0.49752808, 0.5419922, 0.5443115)
+
+[node name="TreeCollectible" type="Node3D" unique_id=2055543 node_paths=PackedStringArray("rotObj", "colliderObj")]
+script = ExtResource("1_yutxe")
+rotObj = NodePath("tree-pine-small")
+colliderObj = NodePath("Area3D")
+
+[node name="tree-pine-small" parent="." unique_id=1064970050 instance=ExtResource("1_dgc7j")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=61471710]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=685606891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02470398, 0.2290039, -0.0134887695)
+shape = SubResource("BoxShape3D_4h8ju")

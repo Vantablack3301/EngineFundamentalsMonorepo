@@ -37,7 +37,20 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"grass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/FBX format/Materials/grass.tres",
+"use_external/path": "uid://bbq0iuk05r53o"
+},
+"rock": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Models/FBX format/Materials/rock.tres",
+"use_external/path": "uid://dc1g8umkt5ugv"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

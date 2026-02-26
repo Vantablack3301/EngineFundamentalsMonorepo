@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bs0a63cg310pp"]
+
+[ext_resource type="Texture2D" uid="uid://clc2aeo28nv7f" path="res://Models/FBX format/Textures/asphalt.png" id="1_pulrw"]
+
+[resource]
+resource_name = "asphalt"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_pulrw")
+emission_enabled = true

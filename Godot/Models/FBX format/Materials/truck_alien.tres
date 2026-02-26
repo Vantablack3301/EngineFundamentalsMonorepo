@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://djx363a3j8mjk"]
+
+[ext_resource type="Texture2D" uid="uid://b837oog40cy73" path="res://Models/FBX format/Textures/truck_alien.png" id="1_st22x"]
+
+[resource]
+resource_name = "truck_alien"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_st22x")
+emission_enabled = true

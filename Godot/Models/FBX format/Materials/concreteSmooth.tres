@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cgrwjby68jfgj"]
+
+[ext_resource type="Texture2D" uid="uid://4vhfioocf664" path="res://Models/FBX format/Textures/tiles.png" id="1_dy7oj"]
+
+[resource]
+resource_name = "concreteSmooth"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_dy7oj")
+emission_enabled = true

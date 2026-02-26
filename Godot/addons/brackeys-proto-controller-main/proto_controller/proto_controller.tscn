@@ -14,7 +14,7 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=1762813301]
+[node name="ProtoController" type="CharacterBody3D" unique_id=1762813301 groups=["Player"]]
 script = ExtResource("1_qqi21")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1999422194]
@@ -34,5 +34,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=846323723]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7386308)
 
-[node name="tree-park-large" parent="." unique_id=1106857188 instance=ExtResource("2_3h6nv")]
+[node name="tree-park-large" parent="." unique_id=80246361 instance=ExtResource("2_3h6nv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26564825, 0)

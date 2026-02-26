@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dndhq3j027iku"]
+
+[ext_resource type="Texture2D" uid="uid://c7qiipmcgf0de" path="res://Models/FBX format/Textures/bars.png" id="1_odpw8"]
+
+[resource]
+resource_name = "bars"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_odpw8")
+emission_enabled = true

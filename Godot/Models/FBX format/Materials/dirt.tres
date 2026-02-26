@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://6y108egxr5wi"]
+
+[ext_resource type="Texture2D" uid="uid://dd567w12e8a8h" path="res://Models/FBX format/Textures/dirt.png" id="1_i6bd2"]
+
+[resource]
+resource_name = "dirt"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_i6bd2")
+emission_enabled = true
