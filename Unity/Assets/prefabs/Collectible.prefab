@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rotObj: {fileID: 2808562379050292374}
   collider: {fileID: 3282829157172071140}
-  rotationSpeed: 5
+  rotationSpeed: 100
 --- !u!65 &3282829157172071140
 BoxCollider:
   m_ObjectHideFlags: 0
