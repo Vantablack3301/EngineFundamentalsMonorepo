@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c0vuyaycmu1cp" path="res://Models/FBX format/tree-park-large.fbx" id="1_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://chfdfe2ehhj3d" path="res://Models/FBX format/truck-flat.fbx" id="2_c2ibq"]
+[ext_resource type="Script" uid="uid://0qqibuv50qqh" path="res://Scripts/InputHandling.gd" id="2_j4qnp"]
 [ext_resource type="PackedScene" uid="uid://d1i5ewk55ddx6" path="res://Models/FBX format/truck-grey-cargo.fbx" id="3_j4qnp"]
 [ext_resource type="PackedScene" uid="uid://cxu1oa2ygq3p4" path="res://Models/FBX format/wall-a-diagonal.fbx" id="4_fpfj3"]
 [ext_resource type="PackedScene" uid="uid://csogp3mgbu3i5" path="res://Models/FBX format/wall-a-door.fbx" id="5_sc1dx"]
@@ -20,10 +21,14 @@ size = Vector3(0.99150085, 1.0016861, 0.9949951)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c2ibq"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_c2ibq"]
+size = Vector3(0.06347656, 4.7576904, 0.16253662)
+
 [node name="Main" type="Node3D" unique_id=1868884646]
 
 [node name="tree-park-large" parent="." unique_id=1106857188 instance=ExtResource("1_c6i3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3753138, 2.3841858e-07, 0.2457695)
+script = ExtResource("2_j4qnp")
 
 [node name="truck-flat" parent="." unique_id=136715392 instance=ExtResource("2_c2ibq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.215537, 0, 1.8531427)
@@ -74,6 +79,18 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0.0029220681, 0.00354
 shape = SubResource("BoxShape3D_c6i3y")
 
 [node name="box" type="MeshInstance3D" parent="Floorparent" unique_id=571250370]
+mesh = SubResource("BoxMesh_c2ibq")
+
+[node name="building collider 1" type="Node3D" parent="." unique_id=1016100041]
+transform = Transform3D(17.507378, 0, 0, 0, 0.2696243, 0, 0, 0, 17.462711, -2.587905, -0.13042474, 0.30885267)
+
+[node name="shape" type="StaticBody3D" parent="building collider 1" unique_id=1269251836]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building collider 1/shape" unique_id=731370946]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000004, 0, 0, 0, 1, 0.016105622, 1.8823899, 0.06124877)
+shape = SubResource("BoxShape3D_c2ibq")
+
+[node name="box" type="MeshInstance3D" parent="building collider 1" unique_id=1202180828]
 mesh = SubResource("BoxMesh_c2ibq")
 
 [node name="ProtoController" parent="." unique_id=1762813301 instance=ExtResource("14_c2ibq")]
