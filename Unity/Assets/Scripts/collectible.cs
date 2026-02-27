@@ -25,9 +25,9 @@ public class collectible : MonoBehaviour
         {
             Debug.Log("Collected!");
 
-            collider.GetComponent<PlayerController>().IncrementTreeCount();
+            collider.GetComponent<AOTADev.PlayerController>().IncrementTreeCount();
 
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }

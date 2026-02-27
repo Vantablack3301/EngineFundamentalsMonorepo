@@ -162,6 +162,7 @@ namespace AOTADev
         public void IncrementTreeCount()
         {
             TreesCount += 1;
+            Debug.Log(TreesCount);
         }
     }
 }
