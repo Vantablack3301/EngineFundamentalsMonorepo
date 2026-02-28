@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://fu0k70y7mq8x"]
+
+[ext_resource type="Texture2D" uid="uid://dnee4egwqvp23" path="res://Models/FBX format/Textures/metal.png" id="1_fxm0o"]
+
+[resource]
+resource_name = "metal"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_fxm0o")
+emission_enabled = true

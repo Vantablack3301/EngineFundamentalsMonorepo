@@ -44,6 +44,8 @@ extends CharacterBody3D
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+var collectedTrees : int = 0
+
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
@@ -58,6 +60,7 @@ func _ready() -> void:
 	check_input_mappings()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -177,3 +180,11 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+
+func _increment_tree_count():
+	collectedTrees += 1
+	print(collectedTrees)
+
+func _get_collected_trees() -> int:
+	return collectedTrees

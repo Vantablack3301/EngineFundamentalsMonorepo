@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bbq0iuk05r53o"]
+
+[ext_resource type="Texture2D" uid="uid://dtb5c1qr60t2x" path="res://Models/FBX format/Textures/grass.png" id="1_43txf"]
+
+[resource]
+resource_name = "grass"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_43txf")
+emission_enabled = true

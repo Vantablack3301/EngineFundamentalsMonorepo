@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b5hexubljl0s3"]
+
+[ext_resource type="Texture2D" uid="uid://cmp5u0lvnwkbl" path="res://Models/FBX format/Textures/treeB.png" id="1_i65t5"]
+
+[resource]
+resource_name = "treeB"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_i65t5")
+emission_enabled = true
+texture_filter = 0

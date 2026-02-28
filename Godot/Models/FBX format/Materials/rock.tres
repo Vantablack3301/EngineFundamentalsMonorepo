@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dc1g8umkt5ugv"]
+
+[ext_resource type="Texture2D" uid="uid://cb8nup67rcgc2" path="res://Models/FBX format/Textures/rock.png" id="1_04uj8"]
+
+[resource]
+resource_name = "rock"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_04uj8")
+emission_enabled = true

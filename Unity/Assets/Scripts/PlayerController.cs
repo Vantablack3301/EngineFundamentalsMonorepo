@@ -40,6 +40,8 @@ namespace AOTADev
         private Rigidbody _rb;
         private Vector2 _moveInput;
 
+        [HideInInspector]public int TreesCount = 0;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -155,6 +157,12 @@ namespace AOTADev
                 mask,
                 QueryTriggerInteraction.Ignore
             );
+        }
+
+        public void IncrementTreeCount()
+        {
+            TreesCount += 1;
+            Debug.Log(TreesCount);
         }
     }
 }

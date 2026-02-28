@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://r4fdthp4brjf"]
+
+[ext_resource type="Texture2D" uid="uid://xrdowkorddmy" path="res://Models/FBX format/Textures/windows.png" id="1_c1lb4"]
+
+[resource]
+resource_name = "windows"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_c1lb4")
+emission_enabled = true

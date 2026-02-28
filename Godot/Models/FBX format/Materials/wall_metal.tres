@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ctiiv3ams684l"]
+
+[ext_resource type="Texture2D" uid="uid://cxbmy7r3mto53" path="res://Models/FBX format/Textures/metal_wall.png" id="1_yt3m4"]
+
+[resource]
+resource_name = "wall_metal"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_yt3m4")
+emission_enabled = true

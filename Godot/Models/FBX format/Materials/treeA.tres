@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bkls8ybsf5ove"]
+
+[ext_resource type="Texture2D" uid="uid://byipa7xjgtatn" path="res://Models/FBX format/Textures/treeA.png" id="1_adjpn"]
+
+[resource]
+resource_name = "treeA"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_adjpn")
+emission_enabled = true

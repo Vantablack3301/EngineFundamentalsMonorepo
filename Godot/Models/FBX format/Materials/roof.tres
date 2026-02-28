@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxn2ujcp3h8wa"]
+
+[ext_resource type="Texture2D" uid="uid://d253lrq4a3b3n" path="res://Models/FBX format/Textures/roof.png" id="1_hubru"]
+
+[resource]
+resource_name = "roof"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_hubru")
+emission_enabled = true
