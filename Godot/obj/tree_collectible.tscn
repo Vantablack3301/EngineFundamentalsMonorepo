@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo20084nx2jrg"]
 
 [ext_resource type="PackedScene" uid="uid://dh7qn6e7wrehb" path="res://Models/FBX format/tree-pine-small.fbx" id="1_dgc7j"]
-[ext_resource type="Script" uid="uid://c0svqw6w33enp" path="res://scripts/tree_collectible.gd" id="1_yutxe"]
+[ext_resource type="Script" uid="uid://c0svqw6w33enp" path="res://Scripts/tree_collectible.gd" id="1_yutxe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4h8ju"]
 size = Vector3(0.49752808, 0.5419922, 0.5443115)

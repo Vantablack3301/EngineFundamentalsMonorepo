@@ -15,4 +15,4 @@ func _process(delta: float) -> void:
 		print("Attack")
 		
 	var move := Input.get_vector("Move_Left", "Move_Right", "Move_Backward", "Move_Forward")
-	print("Move ", move)
+	#print("Move ", move)

@@ -6,6 +6,9 @@ public class InputHandling : MonoBehaviour
     [SerializeField] public InputSystem_Actions input;
     private bool AttackHeld = false;
 
+    public GameObject cameraRoot;
+    public float lookSensitivity = 1f;
+
     private void Start()
     {
         input.Player.Attack.performed += AttackPressed;
@@ -32,6 +35,15 @@ public class InputHandling : MonoBehaviour
         if(move != Vector2.zero)
         {
             transform.position += new Vector3(-move.x, 0, -move.y) * 0.01f;
+        }
+
+        Vector2 look = input.Player.Look.ReadValue<Vector2>();
+        if(look != Vector2.zero)
+        {
+            transform.Rotate(0, -look.x, 0, Space.Self);
+            cameraRoot.transform.Rotate(look.y, 0, 0, Space.Self);
+            float clampedLook = Mathf.Clamp(cameraRoot.transform.rotation.x, -.5f, .5f);
+            cameraRoot.transform.rotation.x = clampedLook;
         }
     }
 

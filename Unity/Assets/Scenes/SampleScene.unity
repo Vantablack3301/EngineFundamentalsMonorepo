@@ -1882,6 +1882,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   ignoreLayer: 7
+  TreesCount: 0
 --- !u!23 &1145018606
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1979,6 +1980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f33e42338941b41a18ef0112e35d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandling
+  cameraRoot: {fileID: 598313064}
+  lookSensitivity: 1
 --- !u!1001 &1145361062
 PrefabInstance:
   m_ObjectHideFlags: 0
