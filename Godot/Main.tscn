@@ -30,7 +30,6 @@ size = Vector3(0.06347656, 4.7576904, 0.16253662)
 
 [node name="tree-park-large" parent="." unique_id=80246361 instance=ExtResource("1_c6i3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3753138, 2.3841858e-07, 0.2457695)
-script = ExtResource("2_j4qnp")
 
 [node name="truck-flat" parent="." unique_id=36093527 instance=ExtResource("2_c2ibq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.215537, 0, 1.8531427)
@@ -97,13 +96,7 @@ mesh = SubResource("BoxMesh_c2ibq")
 
 [node name="ProtoController" parent="." unique_id=1762813301 instance=ExtResource("14_c2ibq")]
 transform = Transform3D(-0.20763895, 0, -0.09750833, 0, 0.22939444, 0, 0.09750833, 0, -0.20763895, -3.475848, 1.2825665, -3.5486631)
-input_left = "Move_Left"
-input_right = "Move_Right"
-input_forward = "Move_Forward"
-input_back = "Move_Backward"
-input_jump = "Jump"
-input_sprint = "Sprint"
-input_freefly = "GMod_Ghost"
+script = ExtResource("2_j4qnp")
 
 [node name="Hud" parent="ProtoController" unique_id=1964467916 node_paths=PackedStringArray("Player") instance=ExtResource("15_fpfj3")]
 Player = NodePath("..")
