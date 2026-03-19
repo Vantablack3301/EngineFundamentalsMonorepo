@@ -5,9 +5,10 @@ var attack_held = false
 var look_rotation : Vector2
 
 var move_speed = 8
-var look_speed = 1
+var look_speed = .2
 var jump_velocity = 5
 var collectedTrees = 0
+var attack_velocity = 50
 
 var mouse_captured : bool
 
@@ -19,22 +20,25 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("Attack"):
-		attack_held = true
-		print("Attack")
+func _physics_process(delta: float) -> void:
 		
 	var move := Input.get_vector("Move_Left", "Move_Right", "Move_Forward", "Move_Backward")
 	var move_dir := (transform.basis * Vector3(move.x, 0, move.y)).normalized()
 	
 	if Input.is_action_just_pressed("Jump"):
 		velocity.y = jump_velocity
+		
 	
 	velocity.x = move_dir.x * move_speed
 	velocity.z = move_dir.z * move_speed
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if Input.is_action_just_pressed("Attack"):
+		print("mr electric, SEND THIS FUCKER STRAIGHT TO HELL")
+		velocity = (global_basis * Vector3.MODEL_REAR).normalized() * 150
 	
+	print(velocity)
 	move_and_slide()
 	
 func _unhandled_input(event: InputEvent) -> void:
