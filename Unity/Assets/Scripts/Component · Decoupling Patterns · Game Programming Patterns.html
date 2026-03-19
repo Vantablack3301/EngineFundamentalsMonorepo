@@ -1,0 +1,1009 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0050)https://gameprogrammingpatterns.com/component.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>Component · Decoupling Patterns · Game Programming Patterns</title>
+
+<!-- Tell mobile browsers we're optimized for them and they don't need to crop
+     the viewport. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./Component · Decoupling Patterns · Game Programming Patterns_files/style.css">
+<link href="./Component · Decoupling Patterns · Game Programming Patterns_files/css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="https://gameprogrammingpatterns.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://gameprogrammingpatterns.com/favicon-16x16.png" sizes="16x16">
+
+<script type="text/javascript" async="" src="./Component · Decoupling Patterns · Game Programming Patterns_files/js"></script><script async="" src="./Component · Decoupling Patterns · Game Programming Patterns_files/analytics.js.download"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42804721-1', 'gameprogrammingpatterns.com');
+  ga('send', 'pageview');
+</script><style type="text/css" id="operaUserStyle"></style>
+<script src="./Component · Decoupling Patterns · Game Programming Patterns_files/jquery-3.6.0.min.js.download"></script>
+<script src="./Component · Decoupling Patterns · Game Programming Patterns_files/script.js.download"></script>
+<style type="text/css">:root img[width="728"][height="90"], :root [href="https://adstub.net/cina777/"], :root [href="https://adstub.net/arab777/"], :root [href="https://adstub.net/ratu89/"], :root [href="https://adstub.net/judi89/"], :root [href^="//mage98rquewz.com/"], :root [href^="//x4pollyxxpush.com/"], :root span[id^="ezoic-pub-ad-placeholder-"], :root ins.adsbygoogle[data-ad-slot], :root ins.adsbygoogle[data-ad-client], :root img[src^="https://s-img.adskeeper.com/"], :root guj-ad, :root gpt-ad, :root div[ow-ad-unit-wrapper], :root div[id^="zergnet-widget"], :root div[id^="vuukle-ad-"], :root div[id^="taboola-stream-"], :root div[id^="sticky_ad_"], :root div[id^="st"][style^="z-index: 999999999;"], :root div[id^="rc-widget-"], :root div[id^="mrec-leaderboard-"], :root div[id^="gpt_ad_"], :root div[id^="ezoic-pub-ad-"], :root div[id^="dfp-ad-"], :root div[id^="crt-"][style], :root div[id^="apn_native_ad_slot_"], :root div[id^="adspot-"], :root div[id^="adrotate_widgets-"], :root ps-connatix-module, :root div[id^="ad_position_"], :root div[id^="ad-div-"], :root div[id*="ScriptRoot"], :root div[id*="MarketGid"], :root [href="https://adstub.net/rusia777/"], :root div[data-id-advertdfpconf], :root div[data-dfp-id], :root hl-adsense, :root div[data-contentexchange-widget], :root div[data-alias="300x250 Ad 2"], :root div[data-adunit-path], :root div[data-adname], :root div[data-ad-placeholder], :root a[href^="https://osfultrbriolenai.info/"], :root div[class^="Adstyled__AdWrapper-"], :root a[href^="https://go.xlviiirdr.com"], :root div[class$="-adlabel"], :root display-ads, :root a[href^="https://go.grinsbest.com/"], :root citrus-ad-wrapper, :root a[href^="https://s.zlinkd.com/"], :root bottomadblock, :root amp-fx-flying-carpet, :root amp-embed[type="taboola"], :root amp-connatix-player, :root div[id^="google_dfp_"], :root ad-slot, :root a[href^="https://www.purevpn.com/"][href*="&utm_source=aff-"], :root a[href^="https://www.privateinternetaccess.com/"] > img, :root a[href^="https://www.onlineusershielder.com/"], :root a[href^="https://financeads.net/tc.php?"], :root a[href^="https://www.mrskin.com/tour"], :root a[href^="https://www.infowarsstore.com/"] > img, :root a[href^="https://ak.psaltauw.net/"], :root broadstreet-zone-container, :root a[href^="https://www.highperformancecpmgate.com/"], :root amp-ad, :root a[href^="https://www.highcpmrevenuenetwork.com/"], :root a[href^="https://www.get-express-vpn.com/offer/"], :root a[href^="https://lnkxt.bannerator.com/"], :root a[href^="https://www.geekbuying.com/dynamic-ads/"], :root [href^="https://groorsoa.net/"], :root a[href^="https://www.financeads.net/tc.php?"], :root a[href^="https://www.effectiveratecpm.com/"], :root [href^="https://www.herbanomic.com/"] > img, :root a[href^="https://www.dql2clk.com/"], :root a[href^="https://www.nutaku.net/signup/landing/"], :root a[href^="https://www.dating-finder.com/signup/?ai_d="], :root a[href^="https://explore-site.com/"], :root a[href^="https://www.brazzersnetwork.com/landing/"], :root [data-template-type="nativead"], :root a[href^="https://www.adultempire.com/"][href*="?partner_id="], :root a[href^="https://voluum.prom-xcams.com/"], :root a[href^="https://twinrdsyte.com/"], :root a[href^="https://twinrdsrv.com/"], :root a[href^="https://syndicate.contentsserved.com/"], :root div[data-alias="300x250 Ad 1"], :root a[href^="https://trk.nfl-online-streams.club/"], :root a[href^="https://tracking.avapartner.com/"], :root a[href^="https://track.wg-aff.com"], :root a[href^="https://track.ultravpn.com/"], :root a[href^="https://track.afcpatrk.com/"], :root a[href^="https://track.adform.net/"], :root a[href^="https://torguard.net/aff.php"] > img, :root [data-identity="adhesive-ad"], :root a[href^="https://tc.tradetracker.net/"] > img, :root a[href^="https://tatrck.com/"], :root [href^="https://zstacklife.com/"] img, :root a[href^="https://click.candyoffers.com/"], :root a[href^="https://t.aslnk.link/"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"], :root a[href^="https://t.ajump1.com/"], :root a[href^="https://t.adating.link/"], :root a[href^="https://go.trackitalltheway.com/"], :root [href^="https://track.fiverr.com/visit/"] > img, :root a[href^="https://syndication.exoclick.com/"], :root a[href^="https://syndication.dynsrvtbg.com/"], :root .gnt_em_vp_c[data-g-s="vp_dk"], :root div[data-ad-wrapper], :root a[href^="https://svb-analytics.trackerrr.com/"], :root a[onmousedown^="this.href='https://paid.outbrain.com/network/redir?"] + .ob_source, :root a[href^="http://www.iyalc.com/"], :root a[href^="https://claring-loccelkin.com/"], :root a[href^="https://stardomcoit.com/"], :root a[href^="https://track.aftrk5.com/"], :root a[href^="https://slkmis.com/"], :root a[href^="https://myclick-2.com/"], :root a[href^="https://sexynearme.com/"], :root [data-ad-manager-id], :root a[href^="https://s.zlinkr.com/"], :root [href="https://adstub.net/gaza88/"], :root a[href^="https://ad.doubleclick.net/"], :root a[href^="https://static.fleshlight.com/images/banners/"], :root a[href^="https://s.zlink7.com/"], :root a[href^="https://s.ma3ion.com/"], :root a[href^="https://s.eunow4u.com/"], :root a[href^="https://random-affiliate.atimaze.com/"], :root #kt_player > div[style$="display: block;"][style*="inset: 0px;"], :root [href$="/sexdating.php"], :root a[href^="https://quotationfirearmrevision.com/"], :root a[href^="https://pubads.g.doubleclick.net/"], :root a[href^="https://prf.hn/click/"][href*="/camref:"] > img, :root a[href^="https://serve.awmdelivery.com/"], :root a[href^="https://www.dating-finder.com/?ai_d="], :root a[href^="https://prf.hn/click/"][href*="/adref:"] > img, :root [href^="https://ap.octopuspop.com/click/"] > img, :root app-ad, :root a[href^="https://postback1win.com/"], :root a[href^="https://a.adtng.com/"], :root a[href^="https://playnano.online/offerwalls/?ref="], :root a[href^="https://mmwebhandler.aff-online.com/"], :root a[href^="https://www.bet365.com/"][href*="affiliate="], :root a[href^="https://pb-track.com/"], :root a[href^="https://pb-front.com/"], :root a[href^="https://paid.outbrain.com/network/redir?"], :root a[href^="https://streamate.com/landing/click/"], :root a[href^="https://upsups.click/"], :root a[href^="https://ndt5.net/"], :root a[href^="https://natour.naughtyamerica.com/track/"], :root a[href^="https://mediaserver.entainpartners.com/renderBanner.do?"], :root [data-ad-name], :root a[href^="https://loboclick.com/"], :root a[href^="https://lead1.pl/"], :root a[href^="https://landing.brazzersnetwork.com/"], :root a[href^="https://juicyads.in/"], :root a[href^="https://snowdayonline.xyz/"], :root a[href^="https://join.dreamsexworld.com/"], :root a[href^="https://join.bannedsextapes.com/track/"], :root a[href^="https://jaxofuna.com/"], :root a[href^="https://italarizege.xyz/"], :root a[href^="https://identicaldrench.com/"], :root ad-shield-ads, :root a[href^="https://hot-growngames.life/"], :root a[href^="https://helmethomicidal.com/"], :root display-ad-component, :root a[href^="https://golinks.work/"], :root a[href^="https://s.zlinkn.com/"], :root a[href^="https://go.xxxvjmp.com/"], :root a[href^="https://go.xxxjmp.com"], :root a[href^="https://zirdough.net/"], :root [class^="tile-picker__CitrusBannerContainer-sc-"], :root a[href^="https://go.xxxiijmp.com"], :root a[href^="https://go.xtbaffiliates.com/"], :root [data-role="tile-ads-module"], :root a[href^="https://go.xlviirdr.com"], :root a[href^="https://go.xlivrdr.com"], :root a[href^="https://ismlks.com/"], :root [href^="https://www.mypillow.com/"] > img, :root a[href^="https://go.xlirdr.com"], :root [data-css-class="dfp-inarticle"], :root a[href^="https://go.tmrjmp.com"], :root a[href^="https://go.markets.com/visit/?bta="], :root a[href^="https://billing.purevpn.com/aff.php"] > img, :root a[href^="https://go.hpyrdr.com/"], :root a[href^="https://lijavaxa.com/"], :root a[href^="https://go.goaserv.com/"], :root app-large-ad, :root [href^="https://turtlebids.irauctions.com/"] img, :root div[data-adunit], :root a[href^="https://go.etoro.com/"] > img, :root a[href^="https://go.dmzjmp.com"], :root a[href^="https://www.bang.com/?aff="], :root #mgb-container > #mgb, :root a[href^="https://go.admjmp.com"], :root a[href^="https://get.surfshark.net/aff_c?"][href*="&aff_id="] > img, :root a[href^="https://datewhisper.life/"], :root a[href^="https://click.linksynergy.com/fs-bin/"] > img, :root a[href^="https://get-link.xyz/"], :root a[href^="https://www.mrskin.com/account/"], :root a[href^="https://www.adskeeper.com"], :root a[data-redirect^="https://paid.outbrain.com/network/redir?"], :root [href^="https://clicks.affstrack.com/"] > img, :root a[href^="https://engine.phn.doublepimp.com/"], :root a[href^="https://dl-protect.net/"], :root a[href*=".foxqck.com/"], :root a[href^="https://ctosrd.com/"], :root a[href^="https://go.bushheel.com/"], :root a[href^="https://ctjdwm.com/"], :root [href="//sexcams.plus/"], :root a[href^="https://camfapr.com/landing/click/"], :root a[href^="https://prf.hn/click/"][href*="/creativeref:"] > img, :root a[href*="&maxads="], :root a[href^="http://www.adultempire.com/unlimited/promo?"][href*="&partner_id="], :root a[href^="https://1betandgonow.com/"], :root a[href^="https://chaturbate.com/in/?"], :root a[href^="https://t.ajrkm1.com/"], :root a[href^="https://bongacams10.com/track?"], :root a[href*=".g2afse.com/"], :root a[href^="https://bodelen.com/"], :root a[href^="//hoodingluster.com/"], :root a[href^="https://black77854.com/"], :root a[href^="https://getmatchedlocally.com/"], :root app-advertisement, :root a[href^="https://rixofa.com/"], :root a[href^="https://best-experience-cool.com/"], :root [data-taboola-options], :root a[href^="https://believessway.com/"], :root a[href^="https://Click.ggpickaff.com/"], :root a[href^="https://banners.livepartners.com/"], :root a[href^="http://revolvemockerycopper.com/"], :root a[href^="https://awptjmp.com/"], :root a[href^="https://join.sexworld3d.com/track/"], :root a[href^="https://aweptjmp.com/"], :root a[href^="https://ausoafab.net/"], :root a[href^="https://clicks.pipaffiliates.com/"], :root a[href^="https://aj1070.online/"], :root a[href^="https://a.bestcontentoperation.top/"], :root a[href^="https://adultfriendfinder.com/go/"], :root a[href^="https://ads.planetwin365affiliate.com/"], :root a[href^="https://ads.leovegas.com/"], :root a[href^="https://go.xlvirdr.com"], :root img[src^="https://images.purevpnaffiliates.com"], :root a[href^="https://porntubemate.com/"], :root a[href^="https://click.dtiserv2.com/"], :root a[href^="https://clickadilla.com/"], :root a[href^="https://a.medfoodhome.com/"], :root a[href^="https://cam4com.go2cloud.org/"], :root .nya-slot[style], :root a[href^="https://a.bestcontentweb.top/"], :root atf-ad-slot, :root a[href^="https://a2.adform.net/"], :root a[href^="https://a.candyai.love/"], :root .banner-img > .pbl, :root [data-m-ad-id], :root a[href^="https://a-ads.com/"], :root a[href^="https://1winpb.com/"], :root div[id^="optidigital-adslot"], :root [href^="https://wsup.ai/"], :root a[href^="https://123-stream.org/"], :root a[href^="https://in.rabbtrk.com/"], :root a[href^="http://www.h4trck.com/"], :root [href^="https://a.acebet.com/api/click?"], :root a[href^="http://www.friendlyduck.com/AF_"], :root a[href^="http://partners.etoro.com/"], :root [href="https://chaturbate.jjgirls.com/"] > img, :root a[href^="http://cam4com.go2cloud.org/aff_c?"], :root a[href^="https://ads.betfair.com/redirect.aspx?"], :root amp-ad-custom, :root a[href^="http://trk.globwo.online/"], :root a[onclick^="window.location.replace('https://random-affiliate.atimaze.com/"], :root a[href^="https://bongacams2.com/track?"], :root a-ad, :root a[href^="https://offhandpump.com/"], :root a[href^="http://stickingrepute.com/"], :root #slashboxes > .deals-rail, :root div[aria-label="Ads"], :root [href^="http://mypillow.com/"] > img, :root a[href^="http://bongacams.com/track?"], :root a[href^="//startgaming.net/tienda/" i], :root a[href^="https://a.medfoodsafety.com/"], :root a[href^="//go.eabids.com/"], :root a[href^=" https://www.friendlyduck.com/AF_"], :root [data-cl-spot-id], :root a[href*="/jump/next.php?r="], :root a[href^="https://go.nordvpn.net/aff"] > img, :root .\[\&_\.gdprAdTransparencyCogWheelButton\]\:\!pjra-z-\[5\], :root [href^="http://clicks.totemcash.com/"], :root a[href^="https://ad.zanox.com/ppc/"] > img, :root [data-d-ad-id], :root a[href*=".engine.adglare.net/"], :root div[id^="lazyad-"], :root a[href^="http://com-1.pro/"], :root [href^="https://www.profitablegatecpm.com/"], :root a[href*=".cfm?domain="][href*="&fp="], :root a[href^="https://ab.advertiserurl.com/aff/"], :root a[data-oburl^="https://paid.outbrain.com/network/redir?"], :root [id^="section-ad-banner"], :root [id^="ad_slider"], :root a[href^="https://www.goldenfrog.com/vyprvpn?offer_id="][href*="&aff_id="], :root a[href^="https://wmctjd.com/"], :root a[href*="//jjgirls.com/sex/Chaturbate"], :root [id^="ad-wrap-"], :root [href^="https://zone.gotrackier.com/"], :root a[href^="http://sarcasmadvisor.com/"], :root [href^="https://www.restoro.com/"], :root a[href^="https://track.totalav.com/"], :root a[href^="https://ctrdwm.com/"], :root [href^="https://www.targetingpartner.com/"], :root a[href^="https://join.virtuallust3d.com/"], :root .section-subheader > .section-hotel-prices-header, :root [href^="https://www.hostg.xyz/"] > img, :root a[href^="https://bngpt.com/"], :root a[href^="https://www.sheetmusicplus.com/"][href*="?aff_id="], :root a[href^="http://adultfriendfinder.com/go/"], :root a[href^="https://fastestvpn.com/lifetime-special-deal?a_aid="], :root a[href^="https://tour.mrskin.com/"], :root div[id^="ad-position-"], :root a[href^="https://www.toprevenuegate.com/"], :root a[href^="https://bc.game/"], :root a[href^="http://join.brokestraightboys.com/track/"], :root div[id^="div-ads-"], :root [href^="https://rapidgator.net/article/premium/ref/"], :root [href^="https://join.girlsoutwest.com/"], :root a[href^="https://activate-game.com/"], :root .scroll-fixable.rail-right > .deals-rail, :root [data-wpas-zoneid], :root a[href^="https://track.aftrk3.com/"], :root [href^="https://join3.bannedsextapes.com"], :root div[data-adzone], :root div[id^="adngin-"], :root [data-rc-widget], :root span[data-ez-ph-id], :root [href^="https://track.aftrk1.com/"], :root [href^="https://join.playboyplus.com/track/"], :root a[href^="https://go.xxxijmp.com"], :root [href^="https://istlnkcl.com/"], :root a[href^="https://trk.softonixs.xyz/"], :root a[href^="https://iqbroker.com/"][href*="?aff="], :root [href^="https://rpwmct.com/"], :root [href^="https://wct.link/click?"], :root a[href^="https://t.acam.link/"], :root a[href^="https://go.strpjmp.com/"], :root [href^="https://url.totaladblock.com/"], :root a[href^="https://go.rmishe.com/"], :root [href^="https://ilovemyfreedoms.com/landing-"], :root [href="https://adstub.net/indo666/"], :root [href^="https://glersakr.com/"], :root a[href^="https://tm-offers.gamingadult.com/"], :root [href^="https://charmingdatings.life/"], :root [data-id^="div-gpt-ad"], :root a[href^="https://tracker.loropartners.com/"], :root [href^="https://awbbjmp.com/"], :root a[href^="https://www.friendlyduck.com/AF_"], :root [href^="https://ad1.adfarm1.adition.com/"], :root a[href^="https://t.ajrkm3.com/"], :root [href^="https://aads.com/campaigns/"], :root a[href^="https://fc.lc/ref/"], :root a[href^="https://go.bbrdbr.com"], :root a[href^="http://tc.tradetracker.net/"] > img, :root a[href^="https://s.zlink3.com/"], :root a[href^="http://sneakyadministration.com/"], :root [href^="https://www.brighteonstore.com/products/"] img, :root a[href^="https://bngprm.com/"], :root [href^="https://shiftnetwork.infusionsoft.com/go/"] > img, :root [href^="http://www.mypillow.com/"] > img, :root .ob_container .item-container-obpd, :root [id^="div-gpt-ad"], :root [href="https://jdrucker.com/gold"] > img, :root a[href^="https://join.virtualtaboo.com/track/"], :root [id^="ad_sky"], :root [name^="google_ads_iframe"], :root aside[id^="adrotate_widgets-"], :root a[href^="https://www.liquidfire.mobi/"], :root DFP-AD, :root .grid > .container > #aside-promotion, :root [data-type="ad-vertical"], :root [href^="https://go.xlrdr.com"], :root a[href^="https://s.cant3am.com/"], :root [data-testid^="taboola-"], :root [data-testid^="section-AdRowBillboard"], :root a[href^="https://track.1234sd123.com/"], :root zeus-ad, :root [data-testid="prism-ad-wrapper"], :root [href^="https://ad.admitad.com/"], :root [href^="https://mypillow.com/"] > img, :root [data-testid="ad_testID"], :root [data-mobile-ad-id], :root [data-dynamic-ads], :root a[href^="https://gamingadlt.com/?offer="], :root [data-desktop-ad-id], :root a[href^="https://go.rmhfrtnd.com"], :root a[href^="https://pb-imc.com/"], :root a[href^="https://www8.smartadserver.com/"], :root topadblock, :root a[href^="//s.zlinkd.com/"], :root [href^="https://mypatriotsupply.com/"] > img, :root [data-testid="adBanner-wrapper"], :root [href^="https://mylead.global/stl/"] > img, :root a[href*=".adsrv.eacdn.com/"], :root [href^="https://antiagingbed.com/discount/"] > img, :root #teaser1[style^="width:autopx;"], :root [href^="https://www.cloudways.com/en/?id"], :root [data-asg-ins], :root [data-block-type="ad"], :root [data-ad-width], :root a[href^="https://clickins.slixa.com/"], :root [onclick*="content.ad/"], :root a[href^="https://go.cmtaffiliates.com/"], :root [href^="https://optimizedelite.com/"] > img, :root div[data-ad-region], :root AMP-AD, :root [data-ad-cls], :root a[href^="https://www.adxsrve.com/"], :root a[href^="https://click.Ggpickaff.com/"], :root [data-ez-name], :root a[href^="https://go.mnaspm.com/"], :root a[href^="https://service.bv-aff-trx.com/"], :root a[href^="https://6-partner.com/"], :root [class^="s2nPlayer"], :root [href^="https://affiliate.fastcomet.com/"] > img, :root [class^="adDisplay-module"], :root a[href^="https://adclick.g.doubleclick.net/"], :root [data-freestar-ad][id], :root AD-SLOT, :root a[href^="https://combodef.com/"], :root a[href^="https://click.hoolig.app/"], :root a[href^="https://www.googleadservices.com/pagead/aclk?"] > img, :root [data-ad-module], :root a[href^="https://a.bestcontentfood.top/"], :root #kt_player > a[target="_blank"], :root a[href^="https://go.skinstrip.net"][href*="?campaignId="], :root #teaser2[style^="width:autopx;"], :root [data-revive-zoneid], :root a[href^="https://losingoldfry.com/"], :root div[id^="div-gpt-"], :root a[href^="https://gml-grp.com/"], :root .ob_dual_right > .ob_ads_header ~ .odb_div, :root div[data-ad-targeting], :root a[style="width:100%;height:100%;z-index:10000000000000000;position:absolute;top:0;left:0;"], :root [href^="https://www.avantlink.com/click.php"] img, :root [data-testid="commercial-label-taboola"], :root [class^="div-gpt-ad"], :root a[href^="https://traffdaq.com/"], :root #teaser3[style^="width:autopx;"], :root a[href^="https://go.hpyjmp.com"], :root iframe[scrolling="no"][sandbox*="allow-popups allow-modals"][style^="width: 100%; height: 100%; border: none;"], :root [href^="https://mystore.com/"] > img, :root [class^="amp-ad-"], :root a[href^="https://clixtrac.com/"], :root a[href^="https://wittered-mainging.com/"], :root #teaser3[style="width: 100%;text-align: center;display: scroll;position:fixed;bottom: 0;margin: 0 auto;z-index: 103;"] { display: none !important; }</style></head>
+<body id="top" data-new-gr-c-s-check-loaded="14.1275.0" data-gr-ext-installed="">
+<div class="page sidebar">
+<div class="content">
+<nav class="top">
+<table>
+<tbody><tr>
+  <td>←&nbsp;<a href="https://gameprogrammingpatterns.com/decoupling-patterns.html">Previous<span class="full-nav">&nbsp;Chapter</span></a>
+  </td><td class="gap">&nbsp;
+  </td><td>≡&nbsp;<a href="https://gameprogrammingpatterns.com/">About&nbsp;<span class="full-nav">The&nbsp;Book</span></a>
+  </td><td class="gap">&nbsp;
+  </td><td>§&nbsp;<a href="https://gameprogrammingpatterns.com/contents.html">Contents</a>
+  </td><td class="gap">&nbsp;
+  </td><td><a href="https://gameprogrammingpatterns.com/event-queue.html">Next<span class="full-nav">&nbsp;Chapter</span></a>&nbsp;→
+</td></tr>
+</tbody></table>
+</nav>
+<h1>Component</h1>
+<h1 class="book"><a href="https://gameprogrammingpatterns.com/">Game Programming Patterns</a><span class="section"><a href="https://gameprogrammingpatterns.com/decoupling-patterns.html">Decoupling Patterns</a></span></h1>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#intent" name="intent">Intent</a></h2>
+<p><em>Allow a single entity to span multiple domains without coupling the domains to
+each other.</em></p>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#motivation" name="motivation">Motivation</a></h2>
+<p>Let’s say we’re building a platformer. The Italian plumber demographic is
+covered, so ours will star a Danish <span name="baker">baker</span>, Bjørn. It
+stands to reason that we’ll have a class representing our friendly pastry chef,
+and it will contain everything he does in the game.</p>
+<aside name="baker" style="top: 511px;">
+<p>Brilliant game ideas like this are why I’m a programmer and not a designer.</p>
+</aside>
+<p>Since the player controls him, that means reading controller input and
+translating that input into motion. And, of course, he needs to interact with the level,
+so some physics and collision go in there. Once that’s done, he’s got to show
+up on screen, so toss in animation and rendering. He’ll probably play some
+sounds too.</p>
+<p>Hold on a minute; this is getting out of control. Software Architecture 101
+tells us that different domains in a program should be kept isolated from each
+other. If we’re making a word processor, the code that handles printing
+shouldn’t be affected by the code that loads and saves documents. A game doesn’t
+have the same domains as a business app, but the rule still applies.</p>
+<p>As much as possible, we don’t want AI, physics, rendering, sound and other
+domains to know about each other, but now we’ve got all of that crammed into one
+class. We’ve seen where this road leads to: a 5,000-line dumping ground source
+file so big that only the bravest ninja coders on your team even dare to go in
+there.</p>
+<p>This is great job security for the few who can tame it, but it’s hell for the rest of
+us. A class that big means even the most seemingly trivial changes can have
+far-reaching implications. Soon, the class collects <em>bugs</em> faster than it
+collects <em>features</em>.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#the-gordian-knot" name="the-gordian-knot">The Gordian knot</a></h3>
+<p>Even worse than the simple scale problem is the <span name="coupling">coupling
+</span> one. All of the different systems in our game have been tied into a
+giant knotted ball of code like:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">collidingWithFloor</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">getRenderState</span><span class="p">()</span> <span class="o">!=</span> <span class="n">INVISIBLE</span><span class="p">))</span>
+<span class="p">{</span>
+  <span class="n">playSound</span><span class="p">(</span><span class="n">HIT_FLOOR</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Any programmer trying to make a change in code like that will need to know
+something about physics, graphics, and sound just to make sure they don’t break
+anything.</p>
+<aside name="coupling" style="top: 1087px;">
+<p>While coupling like this sucks in <em>any</em> game, it’s even worse on modern games
+that use concurrency. On multi-core hardware, it’s vital that code is running on
+multiple threads simultaneously. One common way to split a game across threads
+is along domain boundaries — run AI on one core, sound on another, rendering on a
+third, etc.</p>
+<p>Once you do that, it’s critical that those domains stay decoupled in order to
+avoid deadlocks or other fiendish concurrency bugs. Having a single class with
+an <code>UpdateSounds()</code> method that must be called from one thread and a
+<code>RenderGraphics()</code> method that must be called from another is begging for
+those kinds of bugs to happen.</p>
+</aside>
+<p>These two problems compound each other; the class touches so many domains that
+every programmer will have to work on it, but it’s so huge that doing so is a
+nightmare. If it gets bad enough, coders will start putting hacks in other parts
+of the codebase just to stay out of the hairball that this <code>Bjorn</code> class has
+become.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#cutting-the-knot" name="cutting-the-knot">Cutting the knot</a></h3>
+<p>We can solve this like Alexander the Great — with a sword. We’ll take our
+monolithic <code>Bjorn</code> class and slice it into separate parts along domain
+boundaries. For example, we’ll take all of the code for handling user input and
+move it into a separate <code>InputComponent</code> class. <code>Bjorn</code> will then own an
+instance of this component. We’ll repeat this process for each of the domains that
+<code>Bjorn</code> touches.</p>
+<p>When we’re done, we’ll have moved almost everything out of <code>Bjorn</code>. All that
+remains is a thin shell that binds the components together. We’ve solved our
+huge class problem by simply dividing it up into multiple smaller classes, but
+we’ve accomplished more than just that.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#loose-ends" name="loose-ends">Loose ends</a></h3>
+<p>Our component classes are now decoupled. Even though <code>Bjorn</code> has a
+<code>PhysicsComponent</code> and a <code>GraphicsComponent</code>, the two don’t know about each
+other. This means the person working on physics can modify their component
+without needing to know anything about graphics and vice versa.</p>
+<p>In practice, the components will need to have <em>some</em> interaction between
+themselves. For example, the AI component may need to tell the physics component
+where Bjørn is trying to go. However, we can restrict this to the
+components that <em>do</em> need to talk instead of just tossing them all in the same
+playpen together.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#tying-back-together" name="tying-back-together">Tying back together</a></h3>
+<p>Another feature of this design is that the <span name="inheritance">components</span> are now reusable packages. So far, we’ve
+focused on our baker, but let’s consider a couple of other kinds of objects in
+our game world. <em>Decorations</em> are things in the world the player sees but
+doesn’t interact with: bushes, debris and other visual detail. <em>Props</em> are like
+decorations but can be touched: boxes, boulders, and trees. <em>Zones</em> are the
+opposite of decorations — invisible but interactive. They’re useful for things
+like triggering a cutscene when Bjørn enters an area.</p>
+<aside name="inheritance" style="top: 2076px;">
+<p>When object-oriented programming first hit the scene, inheritance was the
+shiniest tool in its toolbox. It was considered the ultimate code-reuse hammer,
+and coders swung it often. Since then, we’ve learned the hard way that it’s a
+heavy hammer indeed. Inheritance has its uses, but it’s often too cumbersome for
+simple code reuse.</p>
+<p>Instead, the growing trend in software design is to use composition instead of
+inheritance when possible. Instead of sharing code between two classes by having
+them <em>inherit</em> from the same class, we do so by having them both <em>own an
+instance</em> of the same class.</p>
+</aside>
+<p>Now, consider how we’d set up an inheritance hierarchy for those classes if we
+weren’t using components. A first pass might look like:</p>
+<p><img src="./Component · Decoupling Patterns · Game Programming Patterns_files/component-uml.png" alt="A class diagram. Zone has collision code and inherits from GameObject. Decoration also inherits from GameObject and has rendering code. Prop inherits from Zone but then has redundant rendering code."></p>
+<p>We have a base <code>GameObject</code> class that has common stuff like position and
+orientation. <code>Zone</code> inherits from that and adds collision detection. Likewise,
+<code>Decoration</code> inherits from <code>GameObject</code> and adds rendering. <code>Prop</code> inherits from
+<code>Zone</code>, so it can reuse the collision code. However, <code>Prop</code> can’t <em>also</em> inherit
+from <code>Decoration</code> to reuse the <em>rendering</em> code without running into the <span name="diamond">Deadly Diamond</span>.</p>
+<aside name="diamond" style="top: 2921.77px;">
+<p>The “Deadly Diamond” occurs in class hierarchies with multiple inheritance where
+there are two different paths to the same base class. The pain that causes is a
+bit out of the scope of this book, but understand that they named it
+“deadly” for a reason.</p>
+</aside>
+<p>We could flip things around so that <code>Prop</code> inherits from <code>Decoration</code>, but then
+we end up having to duplicate the <em>collision</em> code. Either way, there’s no clean
+way to reuse the collision and rendering code between the classes that need it
+without resorting to multiple inheritance. The only other option is to push
+everything up into <code>GameObject</code>, but then <code>Zone</code> is wasting memory on rendering
+data it doesn’t need and <code>Decoration</code> is doing the same with physics.</p>
+<p>Now, let’s try it with components. Our <span name="menu">subclasses</span> disappear
+completely. Instead, we have a single <code>GameObject</code> class and two component
+classes: <code>PhysicsComponent</code> and <code>GraphicsComponent</code>. A decoration is simply a
+<code>GameObject</code> with a <code>GraphicsComponent</code> but no <code>PhysicsComponent</code>. A zone is the
+opposite, and a prop has both components. No code duplication, no multiple
+inheritance, and only three classes instead of four.</p>
+<aside name="menu" style="top: 3143.77px;">
+<p>A restaurant menu is a good analogy. If each entity is a monolithic class, it’s
+like you can only order combos. We need to have a separate class for each
+possible <em>combination</em> of features. To satisfy every customer, we would need
+dozens of combos.</p>
+<p>Components are à la carte dining — each customer can select just the
+dishes they want, and the menu is a list of the dishes they can choose
+from.</p>
+</aside>
+<p>Components are basically plug-and-play for objects. They let us build complex
+entities with rich behavior by plugging different reusable component
+objects into sockets on the entity. Think software Voltron.</p>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#the-pattern" name="the-pattern">The Pattern</a></h2>
+<p>A <strong>single entity spans multiple domains</strong>. To keep the domains isolated, the
+code for each is placed in its own <strong><span name="component">component</span>
+class</strong>. The entity is reduced to a simple <strong>container of components</strong>.</p>
+<aside name="component" style="top: 3479.77px;">
+<p>“Component”, like “Object”, is one of those words that means everything and
+nothing in programming. Because of that, it’s been used to describe a few
+concepts. In business software, there’s a “Component” design pattern that
+describes decoupled services that communicate over the web.</p>
+<p>I tried to find a different name for this unrelated pattern found in games, but
+“Component” seems to be the most common term for it. Since design patterns are
+about documenting existing practices, I don’t have the luxury of coining a new
+term. So, following in the footsteps of XNA, Delta3D, and others, “Component” it
+is.</p>
+</aside>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#when-to-use-it" name="when-to-use-it">When to Use It</a></h2>
+<p>Components are most commonly found within the core class that defines the
+entities in a game, but they may be useful in other places as well. This pattern can
+be put to good use when any of these are true:</p>
+<ul>
+<li>
+<p>You have a class that touches multiple domains which you want to keep
+    decoupled from each other.</p>
+</li>
+<li>
+<p>A class is getting massive and hard to work with.</p>
+</li>
+<li>
+<p>You want to be able to define a variety of objects that share different
+    capabilities, but using inheritance doesn’t let you pick the parts you
+    want to reuse precisely enough.</p>
+</li>
+</ul>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#keep-in-mind" name="keep-in-mind">Keep in Mind</a></h2>
+<p>The Component pattern adds a good bit of complexity over simply making a class and
+putting code in it. Each conceptual “object” becomes a cluster of objects that
+must be instantiated, initialized, and correctly wired together. Communication
+between the different components becomes more challenging, and controlling how
+they occupy memory is more complex.</p>
+<p>For a large codebase, this complexity may be worth it for the decoupling and
+code reuse it enables, but take care to ensure you aren’t over-engineering a
+“solution” to a non-existent problem before applying this pattern.</p>
+<p>Another consequence of using components is that you often have to hop through a
+level of indirection to get anything done. Given the container object, first you
+have to get the component you want, <em>then</em> you can do what you need. In <span name="perf">performance</span>-critical inner loops, this pointer following may
+lead to poor performance.</p>
+<aside name="perf" style="top: 4220.77px;">
+<p>There’s a flip side to this coin. The Component pattern can often <em>improve</em>
+performance and cache coherence. Components make it easier to use the <a class="pattern" href="https://gameprogrammingpatterns.com/data-locality.html"> Data Locality</a> pattern to organize
+your data in the order that the CPU wants it.</p>
+</aside>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#sample-code" name="sample-code">Sample Code</a></h2>
+<p>One of the biggest challenges for me in writing this book is figuring out how to
+isolate each pattern. Many design patterns exist to contain code that itself
+isn’t part of the pattern. In order to distill the pattern down to its essence,
+I try to cut as much of that out as possible, but at some point it becomes a bit
+like explaining how to organize a closet without showing any clothes.</p>
+<p>The Component pattern is a particularly hard one. You can’t get a real feel for
+it without seeing some code for each of the domains that it decouples, so I’ll
+have to sketch in a bit more of Bjørn’s code than I’d like. The pattern is
+really only the component <em>classes</em> themselves, but the code in them should
+help clarify what the classes are for. It’s fake code — it calls into other
+classes that aren’t presented here — but it should give you an idea of what
+we’re going for.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#a-monolithic-class" name="a-monolithic-class">A monolithic class</a></h3>
+<p>To get a clearer picture of how this pattern is applied, we’ll start by showing
+a monolithic <span name="cat"><code>Bjorn</code></span> class that does everything we need
+but <em>doesn’t</em> use this pattern:</p>
+<aside name="cat" style="top: 4712.77px;">
+<p>I should point out that using the actual name of the character in the codebase
+is usually a bad idea. The marketing department has an annoying habit of
+demanding name changes days before you ship. “Focus tests show males between 11
+and 15 respond negatively to ‘Bjørn’. Use ‘Sven’
+instead.”</p>
+<p>This is why many software projects use internal-only codenames. Well, that and
+because it’s more fun to tell people you’re working on “Big Electric Cat” than
+just “the next version of Photoshop.”</p>
+</aside>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Bjorn</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">Bjorn</span><span class="p">()</span>
+  <span class="o">:</span> <span class="n">velocity_</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">x_</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">y_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">);</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">WALK_ACCELERATION</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="kt">int</span> <span class="n">velocity_</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">;</span>
+
+  <span class="n">Volume</span> <span class="n">volume_</span><span class="p">;</span>
+
+  <span class="n">Sprite</span> <span class="n">spriteStand_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkLeft_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkRight_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p><code>Bjorn</code> has an <code>update()</code> method that gets called once per frame by the game:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">Bjorn::update</span><span class="p">(</span><span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Apply user input to hero's velocity.</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">Controller</span><span class="o">::</span><span class="n">getJoystickDirection</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="k">case</span> <span class="nl">DIR_LEFT</span><span class="p">:</span>
+      <span class="n">velocity_</span> <span class="o">-=</span> <span class="n">WALK_ACCELERATION</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+
+    <span class="k">case</span> <span class="nl">DIR_RIGHT</span><span class="p">:</span>
+      <span class="n">velocity_</span> <span class="o">+=</span> <span class="n">WALK_ACCELERATION</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Modify position by velocity.</span>
+  <span class="n">x_</span> <span class="o">+=</span> <span class="n">velocity_</span><span class="p">;</span>
+  <span class="n">world</span><span class="p">.</span><span class="n">resolveCollision</span><span class="p">(</span><span class="n">volume_</span><span class="p">,</span> <span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">velocity_</span><span class="p">);</span>
+
+  <span class="c1">// Draw the appropriate sprite.</span>
+  <span class="n">Sprite</span><span class="o">*</span> <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteStand_</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">velocity_</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteWalkLeft_</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">velocity_</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteWalkRight_</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">graphics</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">sprite</span><span class="p">,</span> <span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>It reads the joystick to determine how to accelerate the baker. Then it resolves
+its new position with the physics engine. Finally, it draws Bjørn onto the
+screen.</p>
+<p>The sample implementation here is trivially simple. There’s no gravity,
+animation, or any of the dozens of other details that make a character fun to
+play. Even so, we can see that we’ve got a single function that several
+different coders on our team will probably have to spend time in, and it’s
+starting to get a bit messy. Imagine this scaled up to a thousand lines and you
+can get an idea of how painful it can become.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#splitting-out-a-domain" name="splitting-out-a-domain">Splitting out a domain</a></h3>
+<p>Starting with one domain, let’s pull a piece out of <code>Bjorn</code> and push it into a
+separate component class. We’ll start with the first domain that gets processed:
+input. The first thing <code>Bjorn</code> does is read in user input and adjust his
+velocity based on it. Let’s move that logic out into a separate class:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">InputComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">Bjorn</span><span class="o">&amp;</span> <span class="n">bjorn</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">Controller</span><span class="o">::</span><span class="n">getJoystickDirection</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="k">case</span> <span class="nl">DIR_LEFT</span><span class="p">:</span>
+        <span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span> <span class="o">-=</span> <span class="n">WALK_ACCELERATION</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="nl">DIR_RIGHT</span><span class="p">:</span>
+        <span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span> <span class="o">+=</span> <span class="n">WALK_ACCELERATION</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">WALK_ACCELERATION</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Pretty simple. We’ve taken the first section of <code>Bjorn</code>’s <code>update()</code>
+method and put it into this class. The changes to <code>Bjorn</code> are also
+straightforward:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Bjorn</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">velocity</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">input_</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+
+    <span class="c1">// Modify position by velocity.</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="n">velocity</span><span class="p">;</span>
+    <span class="n">world</span><span class="p">.</span><span class="n">resolveCollision</span><span class="p">(</span><span class="n">volume_</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">velocity</span><span class="p">);</span>
+
+    <span class="c1">// Draw the appropriate sprite.</span>
+    <span class="n">Sprite</span><span class="o">*</span> <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteStand_</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">velocity</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteWalkLeft_</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">velocity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteWalkRight_</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">graphics</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">sprite</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">InputComponent</span> <span class="n">input_</span><span class="p">;</span>
+
+  <span class="n">Volume</span> <span class="n">volume_</span><span class="p">;</span>
+
+  <span class="n">Sprite</span> <span class="n">spriteStand_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkLeft_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkRight_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p><code>Bjorn</code> now owns an <code>InputComponent</code> object. Where before he was handling user
+input directly in the <code>update()</code> method, now he delegates to the component:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">input_</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
+
+<p>We’ve only started, but already we’ve gotten rid of some coupling — the main
+<code>Bjorn</code> class no longer has any reference to <code>Controller</code>. This will come in
+handy later.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#splitting-out-the-rest" name="splitting-out-the-rest">Splitting out the rest</a></h3>
+<p>Now, let’s go ahead and do the same cut-and-paste job on the physics and graphics
+code. Here’s our new <code>PhysicsComponent</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">PhysicsComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">Bjorn</span><span class="o">&amp;</span> <span class="n">bjorn</span><span class="p">,</span> <span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">bjorn</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span><span class="p">;</span>
+    <span class="n">world</span><span class="p">.</span><span class="n">resolveCollision</span><span class="p">(</span><span class="n">volume_</span><span class="p">,</span>
+        <span class="n">bjorn</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">bjorn</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">Volume</span> <span class="n">volume_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>In addition to moving the physics <em>behavior</em> out of the main <code>Bjorn</code> class, you
+can see we’ve also moved out the <em>data</em> too: The <code>Volume</code> object is now owned by
+the component.</p>
+<p>Last but not least, here’s where the rendering code lives now:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">GraphicsComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">Bjorn</span><span class="o">&amp;</span> <span class="n">bjorn</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Sprite</span><span class="o">*</span> <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteStand_</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteWalkLeft_</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteWalkRight_</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">graphics</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">sprite</span><span class="p">,</span> <span class="n">bjorn</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">bjorn</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">Sprite</span> <span class="n">spriteStand_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkLeft_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkRight_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>We’ve yanked almost everything out, so what’s left of our humble pastry chef?
+Not much:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Bjorn</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">velocity</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+  <span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">input_</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+    <span class="n">physics_</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n">world</span><span class="p">);</span>
+    <span class="n">graphics_</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n">graphics</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">InputComponent</span> <span class="n">input_</span><span class="p">;</span>
+  <span class="n">PhysicsComponent</span> <span class="n">physics_</span><span class="p">;</span>
+  <span class="n">GraphicsComponent</span> <span class="n">graphics_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>The <code>Bjorn</code> class now basically does two things: it holds the set of components
+that actually define it, and it holds the state that is shared across multiple
+domains. Position and velocity are still in the core <code>Bjorn</code> class for two
+reasons. First, they are “pan-domain” state — almost every component will make
+use of them, so it isn’t clear which component <em>should</em> own them if we did want
+to push them down.</p>
+<p>Secondly, and more importantly, it gives us an easy way for the components to
+communicate without being coupled to each other. Let’s see if we can put that to
+use.</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#robo-bj%C3%B8rn" name="robo-bjørn">Robo-Bjørn</a></h3>
+<p>So far, we’ve pushed our behavior out to separate component classes, but we
+haven’t <em>abstracted</em> the behavior out. <code>Bjorn</code> still knows the exact concrete
+classes where his behavior is defined. Let’s change that.</p>
+<p>We’ll take our component for handling user input and hide it behind an
+interface. We’ll turn <code>InputComponent</code> into an abstract base class:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">InputComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">InputComponent</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">Bjorn</span><span class="o">&amp;</span> <span class="n">bjorn</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Then, we’ll take our existing user input handling code and push it down into a
+class that implements that interface:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">PlayerInputComponent</span> <span class="o">:</span> <span class="k">public</span> <span class="n">InputComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">Bjorn</span><span class="o">&amp;</span> <span class="n">bjorn</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">Controller</span><span class="o">::</span><span class="n">getJoystickDirection</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="k">case</span> <span class="nl">DIR_LEFT</span><span class="p">:</span>
+        <span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span> <span class="o">-=</span> <span class="n">WALK_ACCELERATION</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+
+      <span class="k">case</span> <span class="nl">DIR_RIGHT</span><span class="p">:</span>
+        <span class="n">bjorn</span><span class="p">.</span><span class="n">velocity</span> <span class="o">+=</span> <span class="n">WALK_ACCELERATION</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">WALK_ACCELERATION</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>We’ll change <code>Bjorn</code> to hold a pointer to the input component instead of having
+an inline instance:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Bjorn</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">velocity</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+  <span class="n">Bjorn</span><span class="p">(</span><span class="n">InputComponent</span><span class="o">*</span> <span class="n">input</span><span class="p">)</span>
+  <span class="o">:</span> <span class="n">input_</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">input_</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+    <span class="n">physics_</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n">world</span><span class="p">);</span>
+    <span class="n">graphics_</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n">graphics</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">InputComponent</span><span class="o">*</span> <span class="n">input_</span><span class="p">;</span>
+  <span class="n">PhysicsComponent</span> <span class="n">physics_</span><span class="p">;</span>
+  <span class="n">GraphicsComponent</span> <span class="n">graphics_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Now, when we instantiate <code>Bjorn</code>, we can pass in an input component for it to
+use, like so:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Bjorn</span><span class="o">*</span> <span class="n">bjorn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bjorn</span><span class="p">(</span><span class="k">new</span> <span class="n">PlayerInputComponent</span><span class="p">());</span>
+</code></pre></div>
+
+<p>This instance can be any concrete type that implements our abstract
+<code>InputComponent</code> interface. We pay a price for this — <code>update()</code> is now a virtual
+method call, which is a little slower. What do we get in return for this cost?</p>
+<p>Most consoles require a game to support “demo mode.” If the player sits at the
+main menu without doing anything, the game will start playing automatically,
+with the computer standing in for the player. This keeps the game from burning
+the main menu into your TV and also makes the game look nicer when it’s running
+on a kiosk in a store.</p>
+<p>Hiding the input component class behind an interface lets us get that working.
+We already have our concrete <code>PlayerInputComponent</code> that’s normally used when
+playing the game. Now, let’s make another one:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">DemoInputComponent</span> <span class="o">:</span> <span class="k">public</span> <span class="n">InputComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">Bjorn</span><span class="o">&amp;</span> <span class="n">bjorn</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// AI to automatically control Bjorn...</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>When the game goes into demo mode, instead of constructing Bjørn like we did
+earlier, we’ll wire him up with our new component:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Bjorn</span><span class="o">*</span> <span class="n">bjorn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bjorn</span><span class="p">(</span><span class="k">new</span> <span class="n">DemoInputComponent</span><span class="p">());</span>
+</code></pre></div>
+
+<p>And now, just by swapping out a component, we’ve got a fully functioning
+computer-controlled player for demo mode. We’re able to reuse all of the other
+code for Bjørn — physics and graphics don’t even know there’s a difference.
+Maybe I’m a bit strange, but it’s stuff like this that gets me up in the <span name="coffee">morning</span>.</p>
+<aside name="coffee" style="top: 10790.8px;">
+<p>That, and coffee. Sweet, steaming hot coffee.</p>
+</aside>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#no-bj%C3%B8rn-at-all" name="no-bjørn-at-all">No Bjørn at all?</a></h3>
+<p>If you look at our <code>Bjorn</code> class now, you’ll notice there’s nothing really
+“Bjørn” about it — it’s just a component bag. In fact, it looks like a pretty
+good candidate for a base “game object” class that we can use for <em>every</em> object
+in the game. All we need to do is pass in <em>all</em> the components, and we can build
+any kind of object by picking and choosing parts like Dr. Frankenstein.</p>
+<p>Let’s take our two remaining concrete components — physics and graphics — and
+hide them behind interfaces like we did with input:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">PhysicsComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">PhysicsComponent</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">GameObject</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">,</span> <span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">GraphicsComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">GraphicsComponent</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">GameObject</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Then we re-christen <code>Bjorn</code> into a <span name="id">generic</span> <code>GameObject</code>
+class that uses those interfaces:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">GameObject</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="n">velocity</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+
+  <span class="n">GameObject</span><span class="p">(</span><span class="n">InputComponent</span><span class="o">*</span> <span class="n">input</span><span class="p">,</span>
+             <span class="n">PhysicsComponent</span><span class="o">*</span> <span class="n">physics</span><span class="p">,</span>
+             <span class="n">GraphicsComponent</span><span class="o">*</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="o">:</span> <span class="n">input_</span><span class="p">(</span><span class="n">input</span><span class="p">),</span>
+    <span class="n">physics_</span><span class="p">(</span><span class="n">physics</span><span class="p">),</span>
+    <span class="n">graphics_</span><span class="p">(</span><span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">input_</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+    <span class="n">physics_</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n">world</span><span class="p">);</span>
+    <span class="n">graphics_</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span> <span class="n">graphics</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">InputComponent</span><span class="o">*</span> <span class="n">input_</span><span class="p">;</span>
+  <span class="n">PhysicsComponent</span><span class="o">*</span> <span class="n">physics_</span><span class="p">;</span>
+  <span class="n">GraphicsComponent</span><span class="o">*</span> <span class="n">graphics_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<aside name="id" style="top: 11317.8px;">
+<p>Some component systems take this even further. Instead of a <code>GameObject</code> that
+contains its components, the game entity is just an ID, a number. Then, you
+maintain separate collections of components where each one knows the ID of the
+entity its attached to.</p>
+<p>These <a href="http://en.wikipedia.org/wiki/Entity_component_system">entity component
+systems</a> take decoupling
+components to the extreme and let you add new components to an entity without
+the entity even knowing. The <a href="https://gameprogrammingpatterns.com/data-locality.html" class="pattern">Data
+Locality</a> chapter has more details.</p>
+</aside>
+<p>Our existing concrete classes will get renamed and implement those interfaces:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BjornPhysicsComponent</span> <span class="o">:</span> <span class="k">public</span> <span class="n">PhysicsComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">GameObject</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">,</span> <span class="n">World</span><span class="o">&amp;</span> <span class="n">world</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Physics code...</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">BjornGraphicsComponent</span> <span class="o">:</span> <span class="k">public</span> <span class="n">GraphicsComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">update</span><span class="p">(</span><span class="n">GameObject</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Graphics code...</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>And now we can build an object that has all of Bjørn’s original behavior without
+having to actually create a class for him, just like this:</p>
+<p><span name="factory"></span></p>
+<div class="codehilite"><pre><span></span><code><span class="n">GameObject</span><span class="o">*</span> <span class="nf">createBjorn</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="n">GameObject</span><span class="p">(</span><span class="k">new</span> <span class="n">PlayerInputComponent</span><span class="p">(),</span>
+                        <span class="k">new</span> <span class="n">BjornPhysicsComponent</span><span class="p">(),</span>
+                        <span class="k">new</span> <span class="n">BjornGraphicsComponent</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<aside name="factory" style="top: 12241.8px;">
+<p>This <code>createBjorn()</code> function is, of course, an example of the classic Gang of
+Four <a class="gof-pattern" href="http://c2.com/cgi/wiki?FactoryMethod">Factory
+Method</a> pattern.</p>
+</aside>
+<p>By defining other functions that instantiate <code>GameObjects</code> with different
+components, we can create all of the different kinds of objects our game needs.</p>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#design-decisions" name="design-decisions">Design Decisions</a></h2>
+<p>The most important design question you’ll need to answer with this pattern is,
+“What set of components do I need?” The answer there is going to depend on the
+needs and genre of your game. The bigger and more complex your engine is, the
+more finely you’ll likely want to slice your components.</p>
+<p>Beyond that, there are a couple of more specific options to consider:</p>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#how-does-the-object-get-its-components" name="how-does-the-object-get-its-components">How does the object get its components?</a></h3>
+<p>Once we’ve split up our monolithic object into a few separate component parts,
+we have to decide who puts the parts back together.</p>
+<ul>
+<li>
+<p><strong>If the object creates its own components:</strong></p>
+<ul>
+<li>
+<p><em>It ensures that the object always has the components it needs.</em> You
+    never have to worry about someone forgetting to wire up the right
+    components to the object and breaking the game. The container object
+    itself takes care of it for you.</p>
+</li>
+<li>
+<p><em>It’s harder to reconfigure the object.</em> One of the powerful features of
+    this pattern is that it lets you build new kinds of objects simply by
+    recombining components. If our object always wires itself with the same
+    set of hard-coded components, we aren’t taking advantage of that
+    flexibility.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>If outside code provides the components:</strong></p>
+<ul>
+<li>
+<p><em>The object becomes more flexible.</em> We can completely change the
+    behavior of the object by giving it different components to work with.
+    Taken to its fullest extent, our object becomes a generic component
+    container that we can reuse over and over again for different purposes.</p>
+</li>
+<li>
+<p><em>The object can be decoupled from the concrete component types.</em> If
+    we’re allowing outside code to pass in components, odds are good that
+    we’re also letting it pass in <em>derived</em> component types. At that point,
+    the object only knows about the component <em>interfaces</em> and not the
+    concrete types themselves. This can make for a nicely encapsulated
+    architecture.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a href="https://gameprogrammingpatterns.com/component.html#how-do-components-communicate-with-each-other" name="how-do-components-communicate-with-each-other">How do components communicate with each other?</a></h3>
+<p>Perfectly decoupled components that function in isolation is a nice ideal, but
+it doesn’t really work in practice. The fact that these components are part of the
+<em>same</em> object implies that they are part of a larger whole and need to
+coordinate. That means communication.</p>
+<p>So how can the components talk to each other? There are a couple of options, but
+unlike most design “alternatives” in this book, these aren’t exclusive — you will
+likely support more than one at the same time in your designs.</p>
+<ul>
+<li>
+<p><strong>By modifying the container object’s state:</strong></p>
+<ul>
+<li>
+<p><em>It keeps the components decoupled.</em> When our <code>InputComponent</code> set
+    Bjørn’s velocity and the <code>PhysicsComponent</code> later used it, the two
+    components had no idea that the other even existed. For all they knew,
+    Bjørn’s velocity could have changed through black magic.</p>
+</li>
+<li>
+<p><em>It requires any information that components need to share to get pushed
+    up into the container object.</em> Often, there’s state that’s really only
+    needed by a subset of the components. For example, an animation and a
+    rendering component may need to share information that’s
+    graphics-specific. Pushing that information up into the container object
+    where <em>every</em> component can get to it muddies the object class.</p>
+<p>Worse, if we use the same container object class with different
+component configurations, we can end up wasting memory on state that
+isn’t needed by <em>any</em> of the object’s components. If we push some
+rendering-specific data into the container object, any invisible object
+will be burning memory on it with no benefit.</p>
+</li>
+<li>
+<p><em>It makes communication implicit and dependent on the order that
+    components are processed.</em> In our sample code, the original monolithic
+    <code>update()</code> method had a very carefully laid out order of operations. The
+    user input modified the velocity, which was then used by the physics
+    code to modify the position, which in turn was used by the rendering
+    code to draw Bjørn at the right spot. When we split that code out into
+    components, we were careful to preserve that order of operations.</p>
+<p>If we hadn’t, we would have introduced <span name="pure">subtle</span>,
+hard-to-track bugs. For example, if we’d updated the graphics component
+<em>first</em>, we would wrongly render Bjørn at his position on the <em>last</em>
+frame, not this one. If you imagine several more components and lots
+more code, then you can get an idea of how hard it can be to avoid bugs
+like this.</p>
+<aside name="pure" style="top: 14180.8px;">
+<p>Shared mutable state like this where lots of code is reading and writing
+the same data is notoriously hard to get right. That’s a big part of why
+academics are spending time researching pure functional languages like
+Haskell where there is no mutable state at all.</p>
+</aside>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>By referring directly to each other:</strong></p>
+<p>The idea here is that components that need to talk will have direct
+references to each other without having to go through the container
+object at all.</p>
+<p>Let’s say we want to let Bjørn jump. The graphics code needs to know if
+he should be drawn using a jump sprite or not. It can determine this by
+asking the physics engine if he’s currently on the ground. An easy way
+to do this is by letting the graphics component know about the physics
+component directly:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BjornGraphicsComponent</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="n">BjornGraphicsComponent</span><span class="p">(</span><span class="n">BjornPhysicsComponent</span><span class="o">*</span> <span class="n">physics</span><span class="p">)</span>
+  <span class="o">:</span> <span class="n">physics_</span><span class="p">(</span><span class="n">physics</span><span class="p">)</span>
+  <span class="p">{}</span>
+
+  <span class="kt">void</span> <span class="n">Update</span><span class="p">(</span><span class="n">GameObject</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Graphics</span><span class="o">&amp;</span> <span class="n">graphics</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Sprite</span><span class="o">*</span> <span class="n">sprite</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">physics_</span><span class="o">-&gt;</span><span class="n">isOnGround</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="n">sprite</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">spriteJump_</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="c1">// Existing graphics code...</span>
+    <span class="p">}</span>
+
+    <span class="n">graphics</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">sprite</span><span class="p">,</span> <span class="n">obj</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">BjornPhysicsComponent</span><span class="o">*</span> <span class="n">physics_</span><span class="p">;</span>
+
+  <span class="n">Sprite</span> <span class="n">spriteStand_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkLeft_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteWalkRight_</span><span class="p">;</span>
+  <span class="n">Sprite</span> <span class="n">spriteJump_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>When we construct Bjørn’s <code>GraphicsComponent</code>, we’ll give it a reference
+to his corresponding <code>PhysicsComponent</code>.</p>
+<ul>
+<li>
+<p><em>It’s simple and fast.</em> Communication is a direct method call from one
+    object to another. The component can call any method that is supported
+    by the component it has a reference to. It’s a free-for-all.</p>
+</li>
+<li>
+<p><em>The two components are tightly coupled.</em> The downside of the
+    free-for-all. We’ve basically taken a step back towards our monolithic
+    class. It’s not quite as bad as the original single class though, since
+    we’re at least restricting the coupling to only the component pairs that
+    need to interact.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>By sending messages:</strong></p>
+<ul>
+<li>
+<p>This is the most complex alternative. We can actually build a little
+    messaging system into our container object and let the components
+    broadcast information to each other.</p>
+<p>Here’s one possible implementation. We’ll start by defining a base
+<code>Component</code> interface that all of our components will implement:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Component</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">Component</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="k">virtual</span> <span class="kt">void</span> <span class="n">receive</span><span class="p">(</span><span class="kt">int</span> <span class="n">message</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>It has a single <code>receive()</code> method that component classes implement in
+order to listen to an incoming message. Here, we’re just using an <code>int</code>
+to identify the message, but a fuller implementation could attach
+additional data to the message.</p>
+<p>Then, we’ll add a method to our container object for sending messages:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">ContainerObject</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">void</span> <span class="n">send</span><span class="p">(</span><span class="kt">int</span> <span class="n">message</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX_COMPONENTS</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">receive</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">MAX_COMPONENTS</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">Component</span><span class="o">*</span> <span class="n">components_</span><span class="p">[</span><span class="n">MAX_COMPONENTS</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p><span name="queue">Now</span>, if a component has access to its
+container, it can send messages to the container, which will
+rebroadcast the message to all of the contained components. (That
+includes the original component that sent the message; be careful that
+you don’t get stuck in a feedback loop!) This has a couple of
+consequences:</p>
+<aside name="queue" style="top: 16103.8px;">
+<p>If you really want to get fancy, you can even make this message system
+<em>queue</em> messages to be delivered later. For more on this, see <a href="https://gameprogrammingpatterns.com/event-queue.html" class="pattern">Event Queue</a>.</p>
+</aside>
+</li>
+<li>
+<p><em>Sibling components are decoupled.</em> By going <span name="mediator">through</span> the parent container object, like our
+    shared state alternative, we ensure that the components are still
+    decoupled from each other. With this system, the only coupling they have
+    is the message values themselves.</p>
+<aside name="mediator" style="top: 16238.8px;">
+<p>The Gang of Four call this the <a class="gof-pattern" href="http://c2.com/cgi-bin/wiki?MediatorPattern">Mediator</a> pattern —
+two or more objects communicate with each other indirectly by routing
+the message through an intermediate object. In this case, the container
+object itself is the mediator.</p>
+</aside>
+</li>
+<li>
+<p><em>The container object is simple.</em> Unlike using shared state where the
+    container object itself owns and knows about data used by the
+    components, here, all it does is blindly pass the messages along. That
+    can be useful for letting two components pass very domain-specific
+    information between themselves without having that bleed into the
+    container object.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Unsurprisingly, there’s no one best answer here. What you’ll likely end up doing
+is using a bit of all of them. Shared state is useful for the really basic stuff
+that you can take for granted that every object has — things like position and
+size.</p>
+<p>Some domains are distinct but still closely related. Think animation and
+rendering, user input and AI, or physics and collision. If you have separate
+components for each half of those pairs, you may find it easiest to just let
+them know directly about their other half.</p>
+<p>Messaging is useful for “less important” communication. Its fire-and-forget
+nature is a good fit for things like having an audio component play a sound when
+a physics component sends a message that the object has collided with something.</p>
+<p>As always, I recommend you start simple and then add in additional
+communication paths if you need them.</p>
+<h2><a href="https://gameprogrammingpatterns.com/component.html#see-also" name="see-also">See Also</a></h2>
+<ul>
+<li>
+<p>The <a href="http://unity3d.com/">Unity</a> framework’s core <a href="http://docs.unity3d.com/Documentation/Manual/GameObjects.html"><code>GameObject</code></a> class is designed
+    entirely around <a href="http://docs.unity3d.com/Manual/UsingComponents.html">components</a>.</p>
+</li>
+<li>
+<p>The open source <a href="http://www.delta3d.org/">Delta3D</a> engine has a base
+    <code>GameActor</code> class that implements this pattern with the appropriately named
+    <code>ActorComponent</code> base class.</p>
+</li>
+<li>
+<p>Microsoft’s <a href="http://creators.xna.com/en-US/">XNA</a> game framework
+    comes with a core <code>Game</code> class. It owns a collection of <code>GameComponent</code>
+    objects. Where our example uses components at the individual game entity
+    level, XNA implements the pattern at the level of the main game object
+    itself, but the purpose is the same.</p>
+</li>
+<li>
+<p>This pattern bears resemblance to the Gang of Four’s <a class="gof-pattern" href="http://c2.com/cgi-bin/wiki?StrategyPattern">Strategy</a> pattern. Both
+    patterns are about taking part of an object’s behavior and delegating it to
+    a separate subordinate object. The difference is that with the Strategy
+    pattern, the separate “strategy” object is usually stateless — it
+    encapsulates an algorithm, but no data. It defines <em>how</em> an object behaves,
+    but not <em>what</em> it is.</p>
+<p>Components are a bit more self-important. They often hold state that
+describes the object and helps define its actual identity. However, the line
+may blur. You may have some components that don’t need any local state. In
+that case, you’re free to use the same component <em>instance</em> across multiple
+container objects. At that point, it really is behaving more akin to a
+strategy.</p>
+</li>
+</ul>
+<nav>
+<table>
+<tbody><tr>
+  <td>←&nbsp;<a href="https://gameprogrammingpatterns.com/decoupling-patterns.html">Previous<span class="full-nav">&nbsp;Chapter</span></a>
+  </td><td class="gap">&nbsp;
+  </td><td>≡&nbsp;<a href="https://gameprogrammingpatterns.com/">About&nbsp;<span class="full-nav">The&nbsp;Book</span></a>
+  </td><td class="gap">&nbsp;
+  </td><td>§&nbsp;<a href="https://gameprogrammingpatterns.com/contents.html">Contents</a>
+  </td><td class="gap">&nbsp;
+  </td><td><a href="https://gameprogrammingpatterns.com/event-queue.html">Next<span class="full-nav">&nbsp;Chapter</span></a>&nbsp;→
+</td></tr>
+</tbody></table>
+</nav>
+</div>
+</div>
+<footer>© 2009-2021 Robert Nystrom</footer>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

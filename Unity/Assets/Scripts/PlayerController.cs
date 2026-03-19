@@ -73,7 +73,7 @@ namespace AOTADev
 
             transform.Rotate(Vector3.up, yaw, Space.Self);
             if (MainCamera != null)
-                MainCamera.transform.localEulerAngles = new Vector3(_pitch, 0f, 0f);
+                MainCamera.;
         }
 
         private void FixedUpdate()
