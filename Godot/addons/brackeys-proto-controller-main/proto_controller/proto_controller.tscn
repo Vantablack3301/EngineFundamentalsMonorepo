@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
-[ext_resource type="Script" uid="uid://caa82yg3svecj" path="res://addons/brackeys-proto-controller-main/proto_controller/proto_controller.gd" id="1_qqi21"]
+[ext_resource type="Script" uid="uid://0qqibuv50qqh" path="res://Scripts/InputHandling.gd" id="1_3h6nv"]
 [ext_resource type="PackedScene" uid="uid://c0vuyaycmu1cp" path="res://Models/FBX format/tree-park-large.fbx" id="2_3h6nv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -14,9 +14,10 @@ height = 1.8
 radius = 0.4
 height = 1.4658692
 
-[node name="ProtoController" type="CharacterBody3D" unique_id=1762813301 groups=["Player"]]
+[node name="ProtoController" type="CharacterBody3D" unique_id=1762813301 node_paths=PackedStringArray("body") groups=["Player"]]
 floor_stop_on_slope = false
-script = ExtResource("1_qqi21")
+script = ExtResource("1_3h6nv")
+body = NodePath("tree-park-large")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1999422194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

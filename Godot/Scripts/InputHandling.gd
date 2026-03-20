@@ -5,17 +5,25 @@ var attack_held = false
 var look_rotation : Vector2
 
 var move_speed = 8
-var look_speed = .2
+var look_speed = .002
 var jump_velocity = 5
 var collectedTrees = 0
 var attack_velocity = 50
+var rotation_speed = 20
+
+@export var body : Node3D
 
 var mouse_captured : bool
 
 @onready var head: Node3D = $Head
 
+var attack_thread : Thread
+var mutex : Mutex
+var attacking = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mutex = Mutex.new()
 	pass # Replace with function body.
 
 
@@ -24,22 +32,37 @@ func _physics_process(delta: float) -> void:
 		
 	var move := Input.get_vector("Move_Left", "Move_Right", "Move_Forward", "Move_Backward")
 	var move_dir := (transform.basis * Vector3(move.x, 0, move.y)).normalized()
-	
-	if Input.is_action_just_pressed("Jump"):
-		velocity.y = jump_velocity
+	print(attacking)
+	if(attacking == false):
+		if Input.is_action_just_pressed("Jump"):
+			velocity.y = jump_velocity
+			
 		
-	
-	velocity.x = move_dir.x * move_speed
-	velocity.z = move_dir.z * move_speed
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.x = move_dir.x * move_speed
+		velocity.z = move_dir.z * move_speed
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+	else:
+		body.rotate(Vector3(0, 1, 0), rotation_speed * delta)
 		
 	if Input.is_action_just_pressed("Attack"):
 		print("mr electric, SEND THIS FUCKER STRAIGHT TO HELL")
-		velocity = (global_basis * Vector3.MODEL_REAR).normalized() * 150
+		attack_thread = Thread.new()
+		velocity = (global_basis * Vector3.MODEL_REAR).normalized() * attack_velocity
+		attack_thread.start(_attack_thread)
 	
 	print(velocity)
 	move_and_slide()
+	
+func _attack_thread():
+	mutex.lock()
+	attacking = true
+	mutex.unlock()
+	await get_tree().create_timer(.25).timeout
+	mutex.lock()
+	attacking = false
+	mutex.unlock()
+	
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -48,7 +71,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		release_mouse()
 		
-	if mouse_captured and event is InputEventMouseMotion:
+	if mouse_captured and event is InputEventMouseMotion and attacking == false:
 		rotate_look(event.relative)
 	
 func rotate_look(rot_input : Vector2):
