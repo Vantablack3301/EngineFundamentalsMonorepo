@@ -61,9 +61,8 @@ public class InputHandling : MonoBehaviour
 
     private void AttackFunc()
     {
-        Vector3 launchDir = transform.forward;
-
-        _rb.linearVelocity = launchDir * 50;
+        _rb.AddForce(transform.forward * 50, ForceMode.VelocityChange);
+        Debug.Log("Attack this MF! actually nvm this is a weak attack.");
     }
 
     private void AttackReleased(InputAction.CallbackContext _) => Debug.Log("attack released");
