@@ -1984,7 +1984,8 @@ MonoBehaviour:
   lookSensitivity: 0.5
   minLook: -80
   maxLook: 80
-  walkSpeed: 0.5
+  walkSpeed: 15
+  _rb: {fileID: 1145018603}
 --- !u!1001 &1145361062
 PrefabInstance:
   m_ObjectHideFlags: 0
