@@ -1981,7 +1981,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandling
   cameraRoot: {fileID: 598313064}
-  lookSensitivity: 1
+  lookSensitivity: 0.5
+  minLook: -80
+  maxLook: 80
+  walkSpeed: 0.5
 --- !u!1001 &1145361062
 PrefabInstance:
   m_ObjectHideFlags: 0

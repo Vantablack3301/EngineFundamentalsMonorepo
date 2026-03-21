@@ -8,6 +8,12 @@ public class InputHandling : MonoBehaviour
 
     public GameObject cameraRoot;
     public float lookSensitivity = 1f;
+    public float minLook = -80f;
+    public float maxLook = 80f;
+
+    public float walkSpeed = .5f;
+
+    private float _pitch;
 
     private void Start()
     {
@@ -34,17 +40,19 @@ public class InputHandling : MonoBehaviour
         Vector2 move = input.Player.Move.ReadValue<Vector2>();
         if(move != Vector2.zero)
         {
-            transform.position += new Vector3(-move.x, 0, -move.y) * 0.01f;
+            Vector3 momentum = new Vector3(Vector3.forward.x * move.x, 0f, Vector3.forward.y * move.y);
+            Vector3 transformedMomentum = momentum.InverseTransformDirection(transform.forward);
+            transform.position += transformedMomentum * walkSpeed;
         }
 
         Vector2 look = input.Player.Look.ReadValue<Vector2>();
-        if(look != Vector2.zero)
-        {
-            transform.Rotate(0, -look.x, 0, Space.Self);
-            cameraRoot.transform.Rotate(look.y, 0, 0, Space.Self);
-            float clampedLook = Mathf.Clamp(cameraRoot.transform.rotation.x, -.5f, .5f);
-            cameraRoot.transform.rotation.x = clampedLook;
-        }
+        float yaw = look.x * lookSensitivity;
+        float pitchDelta = -look.y * lookSensitivity;
+
+        _pitch = Mathf.Clamp(_pitch + pitchDelta, minLook, maxLook);
+
+        transform.Rotate(Vector3.up, yaw, Space.Self);
+        cameraRoot.transform.localEulerAngles = new Vector3(_pitch, 0f, 0f);
     }
 
     private void AttackPressed(InputAction.CallbackContext _) => Debug.Log("attack pressed");
